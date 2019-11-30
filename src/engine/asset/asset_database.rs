@@ -13,7 +13,7 @@ use engine::{Material, MeshBuffer, ShaderFs, ShaderProgram, ShaderVs, Texture, T
 use std::fmt::Debug;
 use std::ops::Deref;
 use futures::{Async, Future};
-use std::boxed::FnBox;
+// use std::boxed::FnBox;
 
 use image;
 use image::ImageBuffer;
@@ -32,7 +32,7 @@ pub enum AssetError {
 
 pub type AssetResult<T> = Result<T, AssetError>;
 
-type PrefabHandler = Box<dyn FnBox(AssetResult<loader::Prefab>)>;
+type PrefabHandler = Box<dyn FnOnce(AssetResult<loader::Prefab>)>;
 type MaterialHandler = Box<Fn(&AssetSystem, loader::ObjMaterial) -> Rc<Material>>;
 type AssetTask = Box<Future<Item = (), Error = AssetError>>;
 
