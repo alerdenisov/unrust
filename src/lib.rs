@@ -1,5 +1,4 @@
 #![feature(nll)]
-#![feature(fnbox)]
 #![recursion_limit = "512"]
 #![feature(integer_atomics)]
 #![cfg_attr(feature = "flame_it", feature(plugin, custom_attribute))]
